@@ -13,4 +13,6 @@
     </li>
   <% end %>
 </ul>
+
+<p><%= link_to "Delete Restaurant", @restaurant, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %></p>
 <br>
