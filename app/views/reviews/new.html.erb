@@ -1,6 +1,10 @@
-<h1>New review</h1>
+<h1>Review for <%= @restaurant.name %></h1>
+<!--[@restaurant, @review] is writen in order of the path(restaurants/id/review)
+Also, it is written like this because @review is nested in restaurant -->
 <%= simple_form_for [@restaurant, @review] do |f| %>
   <%= f.input :content %>
    <%= f.input :rating %>
   <%= f.submit "Submit review", class: "btn btn-primary" %>
 <% end %>
+
+<p><%= link_to "Back", restaurant_path(@restaurant.id) %></p>

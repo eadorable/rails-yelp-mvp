@@ -20,9 +20,9 @@ class ReviewsController < ApplicationController
 
   def destroy
     # why no permission for delete like create?
-    @restaurant = Restaurant.find(params[:restaurant_id])
     review = Review.find(params[:id])
     review.destroy
+    @restaurant = Restaurant.find(params[:restaurant_id])
     redirect_to restaurant_path(@restaurant.id)
   end
 

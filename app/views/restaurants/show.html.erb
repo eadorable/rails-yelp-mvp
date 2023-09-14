@@ -4,15 +4,16 @@
 <p>Contact: <%= @restaurant.phone_number %></p>
 
 <p><strong>Reviews</strong></p>
-<ul>
-  <% @restaurant.reviews.each do |review| %>
-    <li>
-    <%= review.content %> || <%= review.rating %> star || <%= link_to "Delete",
-     review_path(review.id),data: {turbo_method: :delete,
-      turbo_confirm: "Are you sure?"}%>
-    </li>
-  <% end %>
-</ul>
 
+<% @restaurant.reviews.each do |review| %>
+<ul>
+    <li>
+    <%= review.content %> ||
+    <%= review.rating %> star ||
+    <%= link_to "Delete",review_path(review.id),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%> ||
+    </li>
+</ul>
+<% end %>
+<p><%= link_to "Add Review",  new_restaurant_review_path(@restaurant.id )%></p>
 <p><%= link_to "Delete Restaurant", @restaurant, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %></p>
-<br>
+<p><%= link_to "Restaurants List", restaurants_path %></p>
